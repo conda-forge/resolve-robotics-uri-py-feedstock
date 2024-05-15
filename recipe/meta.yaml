@@ -1,13 +1,13 @@
 {% set name = "resolve-robotics-uri-py" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/resolve-robotics-uri-py-{{ version }}.tar.gz
-  sha256: cbecaca8bd4f849b1a85fb41650903e1ed71f97534f893d1225cd6a371b0f8a4
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: be5b2c1eae3e61fa537f141f1320af47541bce2a58f8608bf50db28d4f660632
 
 build:
   entry_points:
