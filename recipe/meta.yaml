@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: be5b2c1eae3e61fa537f141f1320af47541bce2a58f8608bf50db28d4f660632
 
 build:
@@ -14,17 +14,17 @@ build:
     - resolve-robotics-uri-py = resolve_robotics_uri_py.resolve_robotics_uri_py:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - wheel
     - setuptools >=45
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -34,6 +34,7 @@ test:
     - resolve-robotics-uri-py --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ami-iit/resolve-robotics-uri-py
