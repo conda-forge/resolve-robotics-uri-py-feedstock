@@ -15,20 +15,20 @@ source:
 build:
   number: 1
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
   python:
     entry_points:
       - resolve-robotics-uri-py = resolve_robotics_uri_py.resolve_robotics_uri_py:main
 
 requirements:
   host:
-    - python >=3.8
+    - python >=${{ python_min }}
     - wheel
     - setuptools >=45
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.8
+    - python >= ${{ python_min }}
 
 tests:
   - python:
