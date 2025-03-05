@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: resolve-robotics-uri-py
-  version: 0.3.0
+  version: 0.3.1
 
 package:
   name: ${{ name|lower }}
@@ -13,7 +13,7 @@ source:
   sha256: be5b2c1eae3e61fa537f141f1320af47541bce2a58f8608bf50db28d4f660632
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
   python:
